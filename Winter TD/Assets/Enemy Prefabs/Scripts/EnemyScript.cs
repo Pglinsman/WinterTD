@@ -29,6 +29,7 @@ public class EnemyScript : MonoBehaviour {
         if (waypoint >= Waypoints.waypoints.Length - 1)
         {
             Destroy(gameObject);
+            return;
         }
 
         else

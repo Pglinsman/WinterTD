@@ -219,8 +219,8 @@ public class ZST_SmartTile : MonoBehaviour {
 
 		// we use a gizmo just for the clickbox, which is why it's clear
 		Gizmos.color = Color.clear;
-		float gridSideLength = snap.gridSideLength;
-		Gizmos.DrawCube(transform.position,transform.localScale * gridSideLength);
+		//float gridSideLength = snap.gridSideLength;
+		//Gizmos.DrawCube(transform.position,transform.localScale * gridSideLength);
 	}
 
 	void OnDestroy() {
