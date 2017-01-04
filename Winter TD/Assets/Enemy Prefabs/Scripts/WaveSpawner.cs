@@ -13,10 +13,16 @@ public class WaveSpawner : MonoBehaviour {
 
     public Text waveCountdownText;
 
-    private int waveNumber = 1;
+    private int waveNumber = 0;
+    private int maxWave = 3;
 
     void Update ()
     {
+        if(waveNumber >= 3)
+        {
+            return;
+        }
+
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
@@ -25,18 +31,19 @@ public class WaveSpawner : MonoBehaviour {
 
         countdown -= Time.deltaTime;
 
-        waveCountdownText.text = Mathf.Round(countdown).ToString();
+        waveCountdownText.text = "Wave " + waveNumber + "/" + maxWave;
     }
 
     IEnumerator SpawnWave ()
     {
+        waveNumber++;
+
         for (int i = 0; i < waveNumber; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(0.3f);
         }
 
-        waveNumber++;
     }
 
     void SpawnEnemy ()
